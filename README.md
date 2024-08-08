@@ -9,7 +9,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
 
 ## Table of Contents
 - [Features](#features)
-- [Planning the UX](#planning-the-ux)
+- [Planning the User Experience](#planning-the-ux)
+- [Planning the User Interface](#planning-the-ux)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contact](#contact)
@@ -18,7 +19,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - .
 - .
 
-## Planning the UX 
+## Planning the User Experience
 ![Image](https://github.com/user-attachments/assets/3e1d7800-c741-4db1-8fcf-acfaa545e3ed)
 ![image](https://github.com/user-attachments/assets/9722e112-125d-453f-a53a-04f09c3f00ef)
 ![image](https://github.com/user-attachments/assets/79e535f9-f88f-4d5e-bb64-4c8bf2c4e6d9)
@@ -26,6 +27,9 @@ Welcome to my first full professional project under Meta's supervision. This pro
 ![image](https://github.com/user-attachments/assets/6420aaf1-b8c9-4ca7-a4e7-6fa37de09fc1)
 ![image](https://github.com/user-attachments/assets/825055ac-f2c2-48b7-a82f-299051514b57)
 
+## Planning the User Interface
+![PG_LittleLemon_StyleGuide](https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab)
+![Permissible colors](https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168)
 
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
