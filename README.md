@@ -23,31 +23,23 @@ Welcome to my first full professional project under Meta's supervision. This pro
 
  <table align="center">
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/3e1d7800-c741-4db1-8fcf-acfaa545e3ed" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/9722e112-125d-453f-a53a-04f09c3f00ef" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/3e1d7800-c741-4db1-8fcf-acfaa545e3ed" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/9722e112-125d-453f-a53a-04f09c3f00ef" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/79e535f9-f88f-4d5e-bb64-4c8bf2c4e6d9" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/84876c55-ae3d-4911-9335-f69a9dc3580f" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/79e535f9-f88f-4d5e-bb64-4c8bf2c4e6d9" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/84876c55-ae3d-4911-9335-f69a9dc3580f" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/6420aaf1-b8c9-4ca7-a4e7-6fa37de09fc1" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/825055ac-f2c2-48b7-a82f-299051514b57" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6420aaf1-b8c9-4ca7-a4e7-6fa37de09fc1" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/825055ac-f2c2-48b7-a82f-299051514b57" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
 </table>
 
 ## Planning the User Interface
 ![PG_LittleLemon_StyleGuide](https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab)
 ![Permissible colors](https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168)
-
-## Planning the User Interface
-
- <table align="center">
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168)" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
-  </tr>
-</table>
+<img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
 
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
