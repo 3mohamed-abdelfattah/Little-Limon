@@ -5,11 +5,11 @@ Welcome to my first full professional project under Meta's supervision. This pro
 
 **Meta Android Professional Certification**
 
-![image](https://github.com/user-attachments/assets/4312925c-02ea-4783-9b70-f2cda8059f46)
+![image](https://github.com/user-attachments/assets/1d8de4aa-f577-478c-b46c-203cf972949f)
 
 ## Table of Contents
 - [Features](#features)
-- [Planning the UX](#screenshots)
+- [Planning the UX](#planning-the-ux)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contact](#contact)
