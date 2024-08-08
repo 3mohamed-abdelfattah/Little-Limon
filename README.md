@@ -5,12 +5,12 @@ Welcome to my first full professional project under Meta's supervision. This pro
 
 **Meta Android Professional Certification**
 
-![image](https://github.com/user-attachments/assets/c95ce4da-dd23-42da-808c-17b25a7da283)
+![image](https://github.com/user-attachments/assets/78168d5f-cd8b-4dab-88c5-b31033d98e04)
 
 ## Table of Contents
 - [Features](#features)
-- [Planning the User Experience](#planning-the-ux)
-- [Planning the User Interface](#planning-the-ux)
+- [Planning the User Experience](#planning-the-user-experience)
+- [Planning the User Interface](#planning-the-user-interface)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contact](#contact)
@@ -20,12 +20,21 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - .
 
 ## Planning the User Experience
-![Image](https://github.com/user-attachments/assets/3e1d7800-c741-4db1-8fcf-acfaa545e3ed)
-![image](https://github.com/user-attachments/assets/9722e112-125d-453f-a53a-04f09c3f00ef)
-![image](https://github.com/user-attachments/assets/79e535f9-f88f-4d5e-bb64-4c8bf2c4e6d9)
-![image](https://github.com/user-attachments/assets/84876c55-ae3d-4911-9335-f69a9dc3580f)
-![image](https://github.com/user-attachments/assets/6420aaf1-b8c9-4ca7-a4e7-6fa37de09fc1)
-![image](https://github.com/user-attachments/assets/825055ac-f2c2-48b7-a82f-299051514b57)
+
+ <table align="center">
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/3e1d7800-c741-4db1-8fcf-acfaa545e3ed" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/9722e112-125d-453f-a53a-04f09c3f00ef" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/79e535f9-f88f-4d5e-bb64-4c8bf2c4e6d9" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/84876c55-ae3d-4911-9335-f69a9dc3580f" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/6420aaf1-b8c9-4ca7-a4e7-6fa37de09fc1" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/825055ac-f2c2-48b7-a82f-299051514b57" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+</table>
 
 ## Planning the User Interface
 ![PG_LittleLemon_StyleGuide](https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab)
