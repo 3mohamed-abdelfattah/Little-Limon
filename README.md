@@ -40,6 +40,15 @@ Welcome to my first full professional project under Meta's supervision. This pro
 ![PG_LittleLemon_StyleGuide](https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab)
 ![Permissible colors](https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168)
 
+## Planning the User Interface
+
+ <table align="center">
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168)" alt="BrandStep Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+</table>
+
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
 - **Jetpack Compose** - For building the UI.
