@@ -5,7 +5,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 
 **Meta Android Professional Certification**
 
-![image](https://github.com/user-attachments/assets/1d8de4aa-f577-478c-b46c-203cf972949f)
+![image](https://github.com/user-attachments/assets/c95ce4da-dd23-42da-808c-17b25a7da283)
 
 ## Table of Contents
 - [Features](#features)
