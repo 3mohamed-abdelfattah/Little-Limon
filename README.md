@@ -58,6 +58,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
   </tr>
 </table>
 
+<img src="https://github.com/user-attachments/assets/c6efc48d-51ad-4fe4-839c-3874b72691f5" alt="Image" width="300"/>
+
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
 - **Jetpack Compose** - For building the UI.
