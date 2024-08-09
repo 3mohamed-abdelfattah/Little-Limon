@@ -40,6 +40,25 @@ Welcome to my first full professional project under Meta's supervision. This pro
 <img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="Image" width="45%"  style="border: 5px solid #92E3A9;"/>
 <img src="https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
 
+ <table align="center">
+    <tr>
+    <td><img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/35800ded-c0c6-4a48-9c84-014f84ed1a77" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/54c15838-0e25-412c-aeb3-e272162bbaf5" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/c5f143cc-6a53-44e1-8737-b9c84543cc26" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/3c000e74-0c52-49d3-a685-fe8624be4a6a" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d8254f3a-43a7-48b5-b4dc-47944d95117a" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/497130d5-df0a-46f3-b125-483753c302bd" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+</table>
+
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
 - **Jetpack Compose** - For building the UI.
