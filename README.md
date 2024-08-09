@@ -39,10 +39,11 @@ Welcome to my first full professional project under Meta's supervision. This pro
 ## Planning the User Interface
 
 <div align="center"> 
+ 
 ###  Brand Style
-
 <img src="https://github.com/user-attachments/assets/65cbf36d-6752-4c89-884a-ba4df9074aab" alt="Image" width="30%"  style="border: 5px solid #92E3A9;"/>
 <img src="https://github.com/user-attachments/assets/0089abce-db5e-49c1-8222-2677c9ea4168" alt="Image" width="53%"  style="border: 5px solid #92E3A9;"/>
+
 </div>
 
  <table align="center">
