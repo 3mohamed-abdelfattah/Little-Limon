@@ -12,25 +12,30 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Onboarding() {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -74,18 +79,20 @@ fun Onboarding() {
 
         Column(modifier = Modifier.padding(18.dp)) {
 
-            val firstName = remember { mutableStateOf(TextFieldValue()) }
-            val lastName = remember { mutableStateOf(TextFieldValue()) }
-            val email = remember { mutableStateOf(TextFieldValue()) }
+            var firstName by remember { mutableStateOf("") }
+            var lastName by remember { mutableStateOf("") }
+            var email by remember { mutableStateOf("") }
 
             Text(text = "First Name", fontWeight = FontWeight.W500)
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            TextField(
-                value = firstName.value,
-                onValueChange = { firstName.value },
-                modifier = Modifier.fillMaxWidth()
+            OutlinedTextField(
+                value = firstName,
+                onValueChange = { firstName = it },
+                shape = RoundedCornerShape(20),
+                modifier = Modifier
+                    .fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -94,10 +101,12 @@ fun Onboarding() {
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            TextField(
-                value = lastName.value,
-                onValueChange = { lastName.value },
-                modifier = Modifier.fillMaxWidth()
+            OutlinedTextField(
+                value = lastName,
+                onValueChange = { lastName = it },
+                shape = RoundedCornerShape(20),
+                modifier = Modifier
+                    .fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -106,10 +115,13 @@ fun Onboarding() {
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            TextField(
-                value = email.value,
-                onValueChange = { email.value },
-                modifier = Modifier.fillMaxWidth()
+            OutlinedTextField(
+                value = email,
+                onValueChange = { email = it },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                shape = RoundedCornerShape(20),
+                modifier = Modifier
+                    .fillMaxWidth()
             )
 
         }
