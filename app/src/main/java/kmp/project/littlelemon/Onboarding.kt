@@ -139,9 +139,9 @@ fun Onboarding() {
                 )
             ),
             shape = RoundedCornerShape(25),
-            border = BorderStroke(2.dp, Color(0x2F333333))
+            border = BorderStroke(2.dp, Color(0xFFdcae59))
         ) {
-            Text(text = "Register", color = Color.Black, fontWeight = FontWeight.Bold)
+            Text(text = "Register", color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
     }
 }
