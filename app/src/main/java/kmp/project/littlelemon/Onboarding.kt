@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -105,6 +106,7 @@ fun Onboarding() {
                         BorderStroke(2.dp, Color.LightGray),
                         RoundedCornerShape(8.dp)
                     ),
+                singleLine = true,
                 trailingIcon = {
                     if (firstName.isNotEmpty()) {
                         IconButton(onClick = { firstName = "" }) {
@@ -134,6 +136,7 @@ fun Onboarding() {
                         BorderStroke(2.dp, Color.LightGray),
                         RoundedCornerShape(8.dp)
                     ),
+                singleLine = true,
                 trailingIcon = {
                     if (lastName.isNotEmpty()) {
                         IconButton(onClick = { lastName = "" }) {
@@ -163,6 +166,7 @@ fun Onboarding() {
                         }
                     }
                 },
+                singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
                     cursorColor = Color(0XFF495E57),
                 ),
@@ -185,7 +189,8 @@ fun Onboarding() {
             onClick = { /*TODO*/ },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
+                .padding(20.dp)
+                .height(50.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(
                     0xFFF4CE14
@@ -198,7 +203,7 @@ fun Onboarding() {
                 text = "Register",
                 color = Color.Black,
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp
+                fontSize = 18.sp
             )
         }
     }
