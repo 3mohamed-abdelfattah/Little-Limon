@@ -14,6 +14,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Features](#features)
 - [Planning the User Experience](#planning-the-user-experience)
 - [Planning the User Interface](#planning-the-user-interface)
+- [Project Functionality](#project-functionality)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contact](#contact)
@@ -67,6 +68,24 @@ Welcome to my first full professional project under Meta's supervision. This pro
 <img src="https://github.com/user-attachments/assets/c6efc48d-51ad-4fe4-839c-3874b72691f5" alt="Image" width="300"/>
 <img src="https://github.com/user-attachments/assets/51ad8be3-ced7-45ee-a75a-49b1af7844cc" alt="Image" width="300"/>
 </div>
+
+## Project Functionality
+
+ <table align="center">
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/84db49f3-1f7d-41ea-b2fd-4474edd82818" alt="Onboarding"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/9475c935-49c0-4ff5-b2bb-6e3a22d5f433" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+</table>
+
 
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
