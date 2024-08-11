@@ -14,6 +14,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Features](#features)
 - [Planning the User Experience](#planning-the-user-experience)
 - [Planning the User Interface](#planning-the-user-interface)
+- [Project Functionality](#project-functionality)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contact](#contact)
