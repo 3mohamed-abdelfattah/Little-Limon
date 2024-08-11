@@ -14,10 +14,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Onboarding() {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -99,7 +106,18 @@ fun Onboarding() {
                     .border(
                         BorderStroke(2.dp, Color.LightGray),
                         RoundedCornerShape(8.dp)
-                    )
+                    ),
+                trailingIcon = {
+                    if (firstName.isNotEmpty()) {
+                        IconButton(onClick = { firstName = "" }) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
+                        }
+                    }
+                },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    cursorColor = Color(0XFF495E57)
+                ),
+                textStyle = TextStyle(fontSize = 18.sp),
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -117,7 +135,18 @@ fun Onboarding() {
                     .border(
                         BorderStroke(2.dp, Color.LightGray),
                         RoundedCornerShape(8.dp)
-                    )
+                    ),
+                trailingIcon = {
+                    if (lastName.isNotEmpty()) {
+                        IconButton(onClick = { lastName = "" }) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
+                        }
+                    }
+                },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    cursorColor = Color(0XFF495E57)
+                ),
+                textStyle = TextStyle(fontSize = 18.sp),
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -129,6 +158,17 @@ fun Onboarding() {
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
+                trailingIcon = {
+                    if (email.isNotEmpty()) {
+                        IconButton(onClick = { email = "" }) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
+                        }
+                    }
+                },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    cursorColor = Color(0XFF495E57)
+                ),
+                textStyle = TextStyle(fontSize = 18.sp),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier
                     .fillMaxWidth()
