@@ -69,12 +69,12 @@ Welcome to my first full professional project under Meta's supervision. This pro
 <img src="https://github.com/user-attachments/assets/51ad8be3-ced7-45ee-a75a-49b1af7844cc" alt="Image" width="300"/>
 </div>
 
-## Navigation Diagram
+## Project Functionality
 
 <div align="center"> 
  
-###  Brand Style
-<img src="https://github.com/user-attachments/assets/84db49f3-1f7d-41ea-b2fd-4474edd82818" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
+###  Navigation Diagram
+<img src="https://github.com/user-attachments/assets/71d67b5d-3fe6-4244-a9ec-bd4e75058ff1" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
 </div>
 
  <table align="center">
@@ -83,7 +83,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/9475c935-49c0-4ff5-b2bb-6e3a22d5f433" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/71d67b5d-3fe6-4244-a9ec-bd4e75058ff1" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
