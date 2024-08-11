@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                 HomeScreen(navController = navController)
             }
             composable(Profile.route) {
-                ProfileScreen()
+                ProfileScreen(navController = navController)
             }
         }
     }
