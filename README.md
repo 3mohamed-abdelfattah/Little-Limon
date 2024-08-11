@@ -74,7 +74,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 <div align="center"> 
  
 ###  Navigation Diagram
-<img src="https://github.com/user-attachments/assets/71d67b5d-3fe6-4244-a9ec-bd4e75058ff1" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
+<img src="https://github.com/user-attachments/assets/dbfd4948-f04b-4fd4-aeed-42f44d906864" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
 </div>
 
  <table align="center">
