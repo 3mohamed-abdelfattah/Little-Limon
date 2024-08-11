@@ -18,12 +18,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,7 +43,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Onboarding() {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -114,7 +112,7 @@ fun Onboarding() {
                         }
                     }
                 },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
+                colors = OutlinedTextFieldDefaults.colors(
                     cursorColor = Color(0XFF495E57)
                 ),
                 textStyle = TextStyle(fontSize = 18.sp),
@@ -143,7 +141,7 @@ fun Onboarding() {
                         }
                     }
                 },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
+                colors = OutlinedTextFieldDefaults.colors(
                     cursorColor = Color(0XFF495E57)
                 ),
                 textStyle = TextStyle(fontSize = 18.sp),
@@ -165,8 +163,8 @@ fun Onboarding() {
                         }
                     }
                 },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    cursorColor = Color(0XFF495E57)
+                colors = OutlinedTextFieldDefaults.colors(
+                    cursorColor = Color(0XFF495E57),
                 ),
                 textStyle = TextStyle(fontSize = 18.sp),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
