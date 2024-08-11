@@ -1,4 +1,8 @@
-# Android App Capstone Project
+
+![9233841_4120164](https://github.com/user-attachments/assets/397d69eb-f301-43a0-a757-6d35b243217f)
+
+# Andro![Uploading 9233841_4120164.jpg…]()
+id App Capstone Project
 
 ## Overview
 Welcome to my first full professional project under Meta's supervision. This project is the final capstone for the **Meta Android Professional Certification**. It represents the culmination of my learning journey in Android development, showcasing the skills and knowledge I've acquired throughout the program.
