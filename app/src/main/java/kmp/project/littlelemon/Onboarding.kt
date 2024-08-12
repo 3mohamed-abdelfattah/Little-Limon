@@ -1,5 +1,6 @@
 package kmp.project.littlelemon
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -47,6 +49,13 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Onboarding(navController: NavController) {
+
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var massage by remember { mutableStateOf("") }
+    val context = LocalContext.current
+
     Column(modifier = Modifier.fillMaxSize()) {
 
         Image(
@@ -88,10 +97,6 @@ fun Onboarding(navController: NavController) {
         Spacer(modifier = Modifier.height(10.dp))
 
         Column(modifier = Modifier.padding(18.dp)) {
-
-            var firstName by remember { mutableStateOf("") }
-            var lastName by remember { mutableStateOf("") }
-            var email by remember { mutableStateOf("") }
 
             Text(text = "First Name", fontWeight = FontWeight.W500, fontSize = 16.sp)
 
@@ -187,7 +192,16 @@ fun Onboarding(navController: NavController) {
         Spacer(modifier = Modifier.weight(1f))
 
         Button(
-            onClick = { navController.navigate(Home.route) },
+            onClick = {
+                if (firstName.isBlank() || lastName.isBlank() || email.isBlank()) {
+                    massage = "Registration unsuccessful. Please enter all data."
+                    Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
+                } else {
+                    massage = "Registration successful!"
+                    Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
+                    navController.navigate(Home.route)
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp)
