@@ -64,6 +64,12 @@ fun Onboarding(navController: NavController) {
         firstName = sharedPreferences.getString("firstName", "") ?: ""
         lastName = sharedPreferences.getString("lastName", "") ?: ""
         email = sharedPreferences.getString("email", "") ?: ""
+
+        if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty()) {
+            navController.navigate(Home.route) {
+                popUpTo(Onboarding.route) { inclusive = true }
+            }
+        }
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -235,7 +241,12 @@ fun Onboarding(navController: NavController) {
     }
 }
 
-fun saveToSharePreferences(context: Context, firstName: String, lastName: String, email: String) {
+fun saveToSharePreferences(
+    context: Context,
+    firstName: String,
+    lastName: String,
+    email: String
+) {
     val sharePreferences: SharedPreferences =
         context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
     val editor = sharePreferences.edit()
