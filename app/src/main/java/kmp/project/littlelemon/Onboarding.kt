@@ -1,5 +1,7 @@
 package kmp.project.littlelemon
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -25,6 +27,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -55,6 +58,13 @@ fun Onboarding(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var massage by remember { mutableStateOf("") }
     val context = LocalContext.current
+
+    LaunchedEffect(Unit) {
+        val sharedPreferences = context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
+        firstName = sharedPreferences.getString("firstName", "") ?: ""
+        lastName = sharedPreferences.getString("lastName", "") ?: ""
+        email = sharedPreferences.getString("email", "") ?: ""
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
 
@@ -197,6 +207,7 @@ fun Onboarding(navController: NavController) {
                     massage = "Registration unsuccessful. Please enter all data."
                     Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
                 } else {
+                    saveToSharePreferences(context, firstName, lastName, email)
                     massage = "Registration successful!"
                     Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
                     navController.navigate(Home.route)
@@ -222,6 +233,16 @@ fun Onboarding(navController: NavController) {
             )
         }
     }
+}
+
+fun saveToSharePreferences(context: Context, firstName: String, lastName: String, email: String) {
+    val sharePreferences: SharedPreferences =
+        context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
+    val editor = sharePreferences.edit()
+    editor.putString("firstName", firstName)
+    editor.putString("lastName", lastName)
+    editor.putString("email", email)
+    editor.apply()
 }
 
 @Preview(showBackground = true)
