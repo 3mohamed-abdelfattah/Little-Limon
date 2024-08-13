@@ -108,3 +108,13 @@ Welcome to my first full professional project under Meta's supervision. This pro
     ```
 2. Open the project in Android Studio.
 3. Build and run the project on your device or emulator.
+
+
+## Additional Resources
+-[Android Studio | Download Android Studio](https://developer.android.com/studio)
+-[Git - Reference | Reference list of commands](https://git-scm.com/docs)
+-[Jetpack Compose UI App development toolkit - Android developers | Building apps with Jetpack Compose](https://developer.android.com/jetpack/compose)
+-[Learn Design: Figma design basics](https://www.figma.com/resources/learn-design/)
+-[SharedPreferences  |  Android Developers](https://developer.android.com/reference/android/content/SharedPreferences)
+-[Navigating with Compose  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/navigation)
+-[Material components and layouts  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/layouts/material#drawers)
