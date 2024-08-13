@@ -1,4 +1,4 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.navigation
 
 interface Destinations {
     val route: String

@@ -1,4 +1,4 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kmp.project.littlelemon.navigation.Profile
 
 @Composable
 fun HomeScreen(navController: NavController) {

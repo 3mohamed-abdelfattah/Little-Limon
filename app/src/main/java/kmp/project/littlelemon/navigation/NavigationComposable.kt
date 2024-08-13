@@ -1,9 +1,12 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kmp.project.littlelemon.screens.HomeScreen
+import kmp.project.littlelemon.screens.Onboarding
+import kmp.project.littlelemon.screens.ProfileScreen
 
 @Composable
 fun MyNavigation() {

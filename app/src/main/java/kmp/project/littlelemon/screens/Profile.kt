@@ -1,23 +1,22 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.screens
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -40,23 +39,22 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kmp.project.littlelemon.navigation.Home
+import kmp.project.littlelemon.R
 
 @Composable
-fun Onboarding(navController: NavController) {
+fun ProfileScreen(navController: NavController) {
 
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var massage by remember { mutableStateOf("") }
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
@@ -64,41 +62,33 @@ fun Onboarding(navController: NavController) {
         firstName = sharedPreferences.getString("firstName", "") ?: ""
         lastName = sharedPreferences.getString("lastName", "") ?: ""
         email = sharedPreferences.getString("email", "") ?: ""
-
-        if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty()) {
-            navController.navigate(Home.route) {
-                popUpTo(Onboarding.route) { inclusive = true }
-            }
-        }
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Image(
-            painter = (painterResource(id = R.drawable.logo)),
-            contentDescription = "App Logo",
+        Row(
             modifier = Modifier
-                .width(200.dp)
-                .padding(top = 45.dp, bottom = 20.dp)
-                .align(Alignment.CenterHorizontally),
-            contentScale = ContentScale.FillWidth
-        )
-
-        Box(
-            Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF495E57))
-                .padding(vertical = 50.dp)
+                .padding(20.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start
         ) {
-            Text(
-                text = "Let's get to know you",
-                fontSize = 28.sp,
-                color = Color.White,
-                fontWeight = FontWeight.W400,
-                fontFamily = FontFamily.Default,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+
+            IconButton(onClick = {
+                navController.navigate(Home.route) {
+                    popUpTo("Home") { inclusive = true }
+                }
+            }) { Icon(Icons.AutoMirrored.Sharp.ArrowBack, contentDescription = "Back") }
+
+            Image(
+                painter = (painterResource(id = R.drawable.logo)),
+                contentDescription = "App Logo",
+                modifier = Modifier
+                    .padding(vertical = 30.dp, horizontal = 50.dp)
+                    .weight(1f),
+                contentScale = ContentScale.FillWidth
             )
+
         }
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -120,7 +110,10 @@ fun Onboarding(navController: NavController) {
 
             OutlinedTextField(
                 value = firstName,
-                onValueChange = { firstName = it },
+                onValueChange = { newValue ->
+                    firstName = newValue
+                    saveToSharePreferences(context, "firstName", newValue)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(8.dp))
@@ -150,7 +143,10 @@ fun Onboarding(navController: NavController) {
 
             OutlinedTextField(
                 value = lastName,
-                onValueChange = { lastName = it },
+                onValueChange = { newValue ->
+                    lastName = newValue
+                    saveToSharePreferences(context, "lastName", newValue)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(8.dp))
@@ -180,7 +176,10 @@ fun Onboarding(navController: NavController) {
 
             OutlinedTextField(
                 value = email,
-                onValueChange = { email = it },
+                onValueChange = { newValue ->
+                    email = newValue
+                    saveToSharePreferences(context, "email", newValue)
+                },
                 trailingIcon = {
                     if (email.isNotEmpty()) {
                         IconButton(onClick = { email = "" }) {
@@ -209,15 +208,8 @@ fun Onboarding(navController: NavController) {
 
         Button(
             onClick = {
-                if (firstName.isBlank() || lastName.isBlank() || email.isBlank()) {
-                    massage = "Registration unsuccessful. Please enter all data."
-                    Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
-                } else {
-                    saveToSharePreferences(context, firstName, lastName, email)
-                    massage = "Registration successful!"
-                    Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
-                    navController.navigate(Home.route)
-                }
+                clearSharedPreferences(context)
+                navController.navigate(kmp.project.littlelemon.navigation.Onboarding.route)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -232,7 +224,7 @@ fun Onboarding(navController: NavController) {
             border = BorderStroke(2.dp, Color(0xFFdcae59))
         ) {
             Text(
-                text = "Register",
+                text = "Log Out",
                 color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp
@@ -241,24 +233,26 @@ fun Onboarding(navController: NavController) {
     }
 }
 
-fun saveToSharePreferences(
-    context: Context,
-    firstName: String,
-    lastName: String,
-    email: String
-) {
+fun saveToSharePreferences(context: Context, key: String, value: String) {
     val sharePreferences: SharedPreferences =
         context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
-    val editor = sharePreferences.edit()
-    editor.putString("firstName", firstName)
-    editor.putString("lastName", lastName)
-    editor.putString("email", email)
+    with(sharePreferences.edit()) {
+        putString(key, value)
+        apply()
+    }
+}
+
+fun clearSharedPreferences(context: Context) {
+    val sharedPreferences: SharedPreferences =
+        context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
+    val editor = sharedPreferences.edit()
+    editor.clear()
     editor.apply()
 }
 
 @Preview(showBackground = true)
 @Composable
-fun OnboardingPreview() {
+fun ProfilePreview() {
     val navController = rememberNavController()
-    Onboarding(navController = navController)
+    ProfileScreen(navController = navController)
 }
