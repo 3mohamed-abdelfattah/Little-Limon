@@ -2,7 +2,6 @@ package kmp.project.littlelemon
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -14,14 +13,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.sharp.ArrowBack
-import androidx.compose.material.icons.sharp.KeyboardArrowLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -80,7 +76,7 @@ fun ProfileScreen(navController: NavController) {
                 navController.navigate(Home.route) {
                     popUpTo("Home") { inclusive = true }
                 }
-            }) { Icon(Icons.Sharp.ArrowBack, contentDescription = "Back") }
+            }) { Icon(Icons.AutoMirrored.Sharp.ArrowBack, contentDescription = "Back") }
 
             Image(
                 painter = (painterResource(id = R.drawable.logo)),
