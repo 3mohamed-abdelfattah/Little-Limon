@@ -72,7 +72,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 ## Project Functionality
 
 <div align="center"> 
- 
+
 ###  Navigation Diagram
 <img src="https://github.com/user-attachments/assets/dbfd4948-f04b-4fd4-aeed-42f44d906864" alt="Image" width="50%"  style="border: 5px solid #92E3A9;"/>
 </div>
@@ -83,8 +83,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/9475c935-49c0-4ff5-b2bb-6e3a22d5f433" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/ffb8c907-54a6-4896-a849-00fd6ad47a30" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/67a48685-6d54-4751-9bf6-13b59b7fec0b" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
