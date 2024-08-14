@@ -85,14 +85,13 @@ Welcome to my first full professional project under Meta's supervision. This pro
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/ffb8c907-54a6-4896-a849-00fd6ad47a30" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/67a48685-6d54-4751-9bf6-13b59b7fec0b" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/80bfa070-d049-433d-a1a0-27d86181c891" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
 </table>
-
 
 ## Technologies Used
 - **Kotlin** - The programming language used for Android development.
