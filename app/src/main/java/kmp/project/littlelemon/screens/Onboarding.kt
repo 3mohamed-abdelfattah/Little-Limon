@@ -49,8 +49,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kmp.project.littlelemon.navigation.Home
 import kmp.project.littlelemon.R
+import kmp.project.littlelemon.navigation.Home
 
 @Composable
 fun Onboarding(navController: NavController) {
