@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -95,8 +97,23 @@ fun ProfileScreen(navController: NavController) {
             }
         }
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.profile),
+                contentDescription = "Profile",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .size(150.dp)
+                    .align(Alignment.Center)
+                    .border(BorderStroke(2.dp, Color(0XFFEDEFEE)), CircleShape)
+            )
+        }
 
+        Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = "Personal Information",
             fontWeight = FontWeight.Bold,
