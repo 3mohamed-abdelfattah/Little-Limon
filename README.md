@@ -57,8 +57,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/54c15838-0e25-412c-aeb3-e272162bbaf5" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/c5f143cc-6a53-44e1-8737-b9c84543cc26" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/3c000e74-0c52-49d3-a685-fe8624be4a6a" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/9669f42a-a7ad-4a13-b9e9-663e97c8fc5f" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0e4c05f6-37fd-4c4b-8f91-9456642f9b72" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/d8254f3a-43a7-48b5-b4dc-47944d95117a" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
@@ -66,8 +66,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
   </tr>
 </table>
 <div align="center"> 
-<img src="https://github.com/user-attachments/assets/c6efc48d-51ad-4fe4-839c-3874b72691f5" alt="Image" width="300"/>
-<img src="https://github.com/user-attachments/assets/51ad8be3-ced7-45ee-a75a-49b1af7844cc" alt="Image" width="300"/>
+<img src="https://github.com/user-attachments/assets/60a39081-26a1-4682-a862-559bdc4c33f6" alt="Image" width="300"/>
+<img src="https://github.com/user-attachments/assets/6a8ec782-b4f7-44fb-bdb2-7473e815b21d" alt="Image" width="300"/>
 </div>
 
 ## Project Functionality
