@@ -36,6 +36,10 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -59,21 +63,37 @@ import kmp.project.littlelemon.navigation.Profile
 @Composable
 fun HomeScreen(navController: NavController) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+
+        var searchPhrase by remember { mutableStateOf("") }
+        var selectedCategory by remember { mutableStateOf<String?>(null) }
+
+        val filteredMenuItems = sampleMenuItems.filter { menuItem ->
+            (searchPhrase.isBlank() || menuItem.title.contains(
+                searchPhrase, ignoreCase = true
+            ) || menuItem.description.contains(
+                searchPhrase, ignoreCase = true
+            )) && (selectedCategory == null || menuItem.category.equals(
+                selectedCategory, ignoreCase = true
+            ))
+        }
+
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
             Spacer(modifier = Modifier.height(30.dp))
             TopBar(navController)
             Spacer(modifier = Modifier.height(1.dp))
-            RestaurantInfo()
+            RestaurantInfo(searchPhrase, onSearchPhraseChange = { searchPhrase = it })
             Spacer(modifier = Modifier.height(16.dp))
-            CategoryTabs()
+            CategoryTabs(selectedCategory = selectedCategory, onCategorySelected = { category ->
+                selectedCategory = if (selectedCategory == category) null else category
+            })
             HorizontalDivider(
                 color = Color.LightGray,
                 thickness = 1.dp,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
-            MenuScreen(menuItems = sampleMenuItems)
+            MenuScreen(menuItems = filteredMenuItems)
         }
     }
 
@@ -96,23 +116,20 @@ fun TopBar(navController: NavController) {
                     .align(Alignment.Center),
                 contentScale = ContentScale.FillWidth
             )
-            Box(
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(shape = CircleShape)
-                    .clickable { navController.navigate(Profile.route) }
-                    .align(
-                        Alignment.TopEnd
-                    )
-            ) {
+            Box(modifier = Modifier
+                .size(40.dp)
+                .clip(shape = CircleShape)
+                .clickable { navController.navigate(Profile.route) }
+                .align(
+                    Alignment.TopEnd
+                )) {
                 Image(
                     painter = painterResource(id = R.drawable.profile),
                     contentDescription = " Profile",
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .border(
-                            BorderStroke(2.dp, Color(0XFFEDEFEE)), CircleShape
-                        )
+                    modifier = Modifier.border(
+                        BorderStroke(2.dp, Color(0XFFEDEFEE)), CircleShape
+                    )
 
                 )
             }
@@ -121,7 +138,7 @@ fun TopBar(navController: NavController) {
 }
 
 @Composable
-fun RestaurantInfo() {
+fun RestaurantInfo(searchPhrase: String, onSearchPhraseChange: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -130,7 +147,8 @@ fun RestaurantInfo() {
     ) {
         Text(
             text = "Little Lemon",
-            style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.SemiBold,
+            style = MaterialTheme.typography.headlineLarge,
+            fontWeight = FontWeight.SemiBold,
             color = Color(0xFFF4CE14)
         )
         Text(text = "Egypt", style = MaterialTheme.typography.headlineMedium, color = Color.White)
@@ -154,12 +172,11 @@ fun RestaurantInfo() {
         }
         Spacer(modifier = Modifier.height(15.dp))
         TextField(
-            value = "",
-            onValueChange = {},
+            value = searchPhrase,
+            onValueChange = onSearchPhraseChange,
             placeholder = { Text("Enter search phrase", color = Color(0XFF767171)) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(8.dp),
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.White,
@@ -173,7 +190,7 @@ fun RestaurantInfo() {
 }
 
 @Composable
-fun CategoryTabs() {
+fun CategoryTabs(selectedCategory: String?, onCategorySelected: (String?) -> Unit) {
     val categories = listOf("Starters", "Mains", "Desserts", "Drinks")
     Column {
         Row(
@@ -190,21 +207,26 @@ fun CategoryTabs() {
             Icon(
                 painter = painterResource(id = R.drawable.van_logo),
                 contentDescription = "van logo",
-                modifier = Modifier.size(40.dp), Color(0XFF495E57)
+                modifier = Modifier.size(40.dp),
+                Color(0XFF495E57)
             )
         }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .horizontalScroll(rememberScrollState())
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.spacedBy(5.dp)
+                .padding(10.dp), horizontalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             categories.forEach { category ->
-                Button(onClick = {}, colors = ButtonDefaults.buttonColors(Color(0xFFedefee))) {
+                Button(
+                    onClick = { onCategorySelected(category) },
+                    colors = ButtonDefaults.buttonColors(
+                        if (selectedCategory == category) Color(0xFF495E57) else Color(0xFFedefee)
+                    )
+                ) {
                     Text(
                         category,
-                        color = Color(0xFF546861),
+                        color = if (selectedCategory == category) Color.White else Color(0xFF546861),
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 16.sp
                     )
@@ -258,7 +280,9 @@ fun MenuItemCard(menuItem: MenuItem) {
                         text = menuItem.description,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 2,
-                        overflow = TextOverflow.Ellipsis, color = Color.DarkGray, fontSize = 15.sp
+                        overflow = TextOverflow.Ellipsis,
+                        color = Color.DarkGray,
+                        fontSize = 15.sp
                     )
                 }
                 Spacer(modifier = Modifier.height(5.dp))
@@ -293,7 +317,6 @@ fun MenuScreenPreview() {
     MenuScreen(menuItems = sampleMenuItems)
 }
 
-
 data class MenuItem(
     val id: Int,
     val title: String,
@@ -311,32 +334,28 @@ val sampleMenuItems = listOf(
         price = "10",
         image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/greekSalad.jpg?raw=true",
         category = "starters"
-    ),
-    MenuItem(
+    ), MenuItem(
         id = 2,
         title = "Lemon Desert",
         description = "Traditional homemade Italian Lemon Ricotta Cake.",
         price = "10",
         image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
         category = "desserts"
-    ),
-    MenuItem(
+    ), MenuItem(
         id = 3,
         title = "Grilled Fish",
         description = "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
         price = "10",
         image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
         category = "mains"
-    ),
-    MenuItem(
+    ), MenuItem(
         id = 4,
         title = "Pasta",
         description = "Penne with fried aubergines, cherry tomatoes, tomato sauce, fresh chili, garlic, basil & salted ricotta cheese.",
         price = "10",
         image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
         category = "mains"
-    ),
-    MenuItem(
+    ), MenuItem(
         id = 5,
         title = "Bruschetta",
         description = "Oven-baked bruschetta stuffed with tomatoes and herbs.",
