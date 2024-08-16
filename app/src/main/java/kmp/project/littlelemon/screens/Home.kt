@@ -98,7 +98,7 @@ fun TopBar(navController: NavController) {
             )
             Box(
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(40.dp)
                     .clip(shape = CircleShape)
                     .clickable { navController.navigate(Profile.route) }
                     .align(
@@ -136,7 +136,7 @@ fun RestaurantInfo() {
         Text(text = "Egypt", style = MaterialTheme.typography.headlineMedium, color = Color.White)
         Spacer(modifier = Modifier.height(15.dp))
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Box(modifier = Modifier.width(width = 220.dp)) {
+            Box(modifier = Modifier.weight(1f)) {
                 Text(
                     text = "We are a family owned Mediterranean restaurant,focused on traditional recipes served with a modern twist.",
                     style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Normal,
@@ -317,7 +317,7 @@ val sampleMenuItems = listOf(
         title = "Lemon Desert",
         description = "Traditional homemade Italian Lemon Ricotta Cake.",
         price = "10",
-        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/lemonDessert%202.jpg?raw=true",
+        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
         category = "desserts"
     ),
     MenuItem(
@@ -325,7 +325,7 @@ val sampleMenuItems = listOf(
         title = "Grilled Fish",
         description = "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
         price = "10",
-        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/grilledFish.jpg?raw=true",
+        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
         category = "mains"
     ),
     MenuItem(

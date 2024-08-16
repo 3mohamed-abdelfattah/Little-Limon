@@ -55,6 +55,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kmp.project.littlelemon.R
 import kmp.project.littlelemon.navigation.Home
+import kmp.project.littlelemon.navigation.Profile
 
 @Composable
 fun ProfileScreen(navController: NavController) {
@@ -234,7 +235,10 @@ fun ProfileScreen(navController: NavController) {
             Button(
                 onClick = {
                     clearSharedPreferences(context)
-                    navController.navigate(kmp.project.littlelemon.navigation.Onboarding.route)
+                    navController.navigate(kmp.project.littlelemon.navigation.Onboarding.route) {
+                        popUpTo(Profile.route) { inclusive = true }
+                        popUpTo(Home.route) { inclusive = true }
+                    }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
