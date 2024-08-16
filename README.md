@@ -118,3 +118,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [SharedPreferences  |  Android Developers](https://developer.android.com/reference/android/content/SharedPreferences)
 - [Navigating with Compose  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/navigation)
 - [Material components and layouts  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/layouts/material#drawers)
+- [Creating a client application | Ktor](https://ktor.io/docs/getting-started-ktor-client.html)
+- [State and Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/state)
+- [Collection operations overview | Kotlin Documentation (kotlinlang.org)](https://kotlinlang.org/docs/collection-operations.html)
+- []()
