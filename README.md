@@ -88,8 +88,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/9c50116f-9ee9-4b29-9919-39d265a6cdff" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/d1b29dde-7c5c-44e7-94cb-a4f16a65daa6" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/93f6aee0-6f02-48e6-b4c5-3450e346c6a0" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
 </table>
 
@@ -118,3 +118,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [SharedPreferences  |  Android Developers](https://developer.android.com/reference/android/content/SharedPreferences)
 - [Navigating with Compose  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/navigation)
 - [Material components and layouts  |  Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/layouts/material#drawers)
+- [Creating a client application | Ktor](https://ktor.io/docs/getting-started-ktor-client.html)
+- [State and Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/state)
+- [Collection operations overview | Kotlin Documentation (kotlinlang.org)](https://kotlinlang.org/docs/collection-operations.html)
+- []()
