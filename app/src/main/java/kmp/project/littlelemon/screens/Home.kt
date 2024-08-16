@@ -35,16 +35,19 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -55,22 +58,25 @@ import kmp.project.littlelemon.navigation.Profile
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Spacer(modifier = Modifier.height(30.dp))
-        TopBar(navController)
-        Spacer(modifier = Modifier.height(1.dp))
-        RestaurantInfo()
-        Spacer(modifier = Modifier.height(16.dp))
-        CategoryTabs()
-        HorizontalDivider(
-            color = Color.LightGray,
-            thickness = 1.dp,
-            modifier = Modifier.padding(horizontal = 16.dp)
-        )
-        MenuScreen(menuItems = sampleMenuItems)
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Spacer(modifier = Modifier.height(30.dp))
+            TopBar(navController)
+            Spacer(modifier = Modifier.height(1.dp))
+            RestaurantInfo()
+            Spacer(modifier = Modifier.height(16.dp))
+            CategoryTabs()
+            HorizontalDivider(
+                color = Color.LightGray,
+                thickness = 1.dp,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+            MenuScreen(menuItems = sampleMenuItems)
+        }
     }
+
 }
 
 @Composable

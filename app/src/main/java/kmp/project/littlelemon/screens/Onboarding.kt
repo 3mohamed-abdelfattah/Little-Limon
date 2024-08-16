@@ -27,6 +27,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,6 +39,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -45,6 +47,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -74,171 +77,174 @@ fun Onboarding(navController: NavController) {
         }
     }
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
 
-        Image(
-            painter = (painterResource(id = R.drawable.logo)),
-            contentDescription = "App Logo",
-            modifier = Modifier
-                .width(200.dp)
-                .padding(top = 45.dp, bottom = 20.dp)
-                .align(Alignment.CenterHorizontally),
-            contentScale = ContentScale.FillWidth
-        )
+        Column(modifier = Modifier.fillMaxSize()) {
 
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .background(Color(0xFF495E57))
-                .padding(vertical = 50.dp)
-        ) {
-            Text(
-                text = "Let's get to know you",
-                fontSize = 28.sp,
-                color = Color.White,
-                fontWeight = FontWeight.W400,
-                fontFamily = FontFamily.Default,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            )
-        }
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Text(
-            text = "Personal Information",
-            fontWeight = FontWeight.Bold,
-            fontSize = 18.sp,
-            modifier = Modifier.padding(15.dp)
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Column(modifier = Modifier.padding(18.dp)) {
-
-            Text(text = "First Name", fontWeight = FontWeight.W500, fontSize = 16.sp)
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            OutlinedTextField(
-                value = firstName,
-                onValueChange = { firstName = it },
+            Image(
+                painter = (painterResource(id = R.drawable.logo)),
+                contentDescription = "App Logo",
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(8.dp))
-                    .border(
-                        BorderStroke(2.dp, Color.LightGray),
-                        RoundedCornerShape(8.dp)
-                    ),
-                singleLine = true,
-                trailingIcon = {
-                    if (firstName.isNotEmpty()) {
-                        IconButton(onClick = { firstName = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = null)
-                        }
-                    }
-                },
-                colors = OutlinedTextFieldDefaults.colors(
-                    cursorColor = Color(0XFF495E57)
-                ),
-                textStyle = TextStyle(fontSize = 18.sp),
+                    .width(200.dp)
+                    .padding(top = 45.dp, bottom = 20.dp)
+                    .align(Alignment.CenterHorizontally),
+                contentScale = ContentScale.FillWidth
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(text = "Last Name", fontWeight = FontWeight.W500, fontSize = 16.sp)
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            OutlinedTextField(
-                value = lastName,
-                onValueChange = { lastName = it },
-                modifier = Modifier
+            Box(
+                Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(8.dp))
-                    .border(
-                        BorderStroke(2.dp, Color.LightGray),
-                        RoundedCornerShape(8.dp)
-                    ),
-                singleLine = true,
-                trailingIcon = {
-                    if (lastName.isNotEmpty()) {
-                        IconButton(onClick = { lastName = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = null)
-                        }
-                    }
-                },
-                colors = OutlinedTextFieldDefaults.colors(
-                    cursorColor = Color(0XFF495E57)
-                ),
-                textStyle = TextStyle(fontSize = 18.sp),
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(text = "Email", fontWeight = FontWeight.W500, fontSize = 16.sp)
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                trailingIcon = {
-                    if (email.isNotEmpty()) {
-                        IconButton(onClick = { email = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = null)
-                        }
-                    }
-                },
-                singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    cursorColor = Color(0XFF495E57),
-                ),
-                textStyle = TextStyle(fontSize = 18.sp),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(8.dp))
-                    .border(
-                        BorderStroke(2.dp, Color.LightGray),
-                        RoundedCornerShape(8.dp)
-                    )
-            )
-
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        Button(
-            onClick = {
-                if (firstName.isBlank() || lastName.isBlank() || email.isBlank()) {
-                    massage = "Registration unsuccessful. Please enter all data."
-                    Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
-                } else {
-                    saveToSharePreferences(context, firstName, lastName, email)
-                    massage = "Registration successful!"
-                    Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
-                    navController.navigate(Home.route)
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)
-                .height(50.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(
-                    0xFFF4CE14
+                    .background(Color(0xFF495E57))
+                    .padding(vertical = 50.dp)
+            ) {
+                Text(
+                    text = "Let's get to know you",
+                    fontSize = 28.sp,
+                    color = Color.White,
+                    fontWeight = FontWeight.W400,
+                    fontFamily = FontFamily.Default,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
                 )
-            ),
-            shape = RoundedCornerShape(25),
-            border = BorderStroke(2.dp, Color(0xFFdcae59))
-        ) {
+            }
+
+            Spacer(modifier = Modifier.height(30.dp))
+
             Text(
-                text = "Register",
-                color = Color.Black,
+                text = "Personal Information",
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp
+                fontSize = 18.sp,
+                modifier = Modifier.padding(15.dp)
             )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Column(modifier = Modifier.padding(18.dp)) {
+
+                Text(text = "First Name", fontWeight = FontWeight.W500, fontSize = 16.sp)
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = firstName,
+                    onValueChange = { firstName = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(
+                            BorderStroke(2.dp, Color.LightGray),
+                            RoundedCornerShape(8.dp)
+                        ),
+                    singleLine = true,
+                    trailingIcon = {
+                        if (firstName.isNotEmpty()) {
+                            IconButton(onClick = { firstName = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = null)
+                            }
+                        }
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        cursorColor = Color(0XFF495E57)
+                    ),
+                    textStyle = TextStyle(fontSize = 18.sp),
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Text(text = "Last Name", fontWeight = FontWeight.W500, fontSize = 16.sp)
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = lastName,
+                    onValueChange = { lastName = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(
+                            BorderStroke(2.dp, Color.LightGray),
+                            RoundedCornerShape(8.dp)
+                        ),
+                    singleLine = true,
+                    trailingIcon = {
+                        if (lastName.isNotEmpty()) {
+                            IconButton(onClick = { lastName = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = null)
+                            }
+                        }
+                    },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        cursorColor = Color(0XFF495E57)
+                    ),
+                    textStyle = TextStyle(fontSize = 18.sp),
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Text(text = "Email", fontWeight = FontWeight.W500, fontSize = 16.sp)
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    trailingIcon = {
+                        if (email.isNotEmpty()) {
+                            IconButton(onClick = { email = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = null)
+                            }
+                        }
+                    },
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        cursorColor = Color(0XFF495E57),
+                    ),
+                    textStyle = TextStyle(fontSize = 18.sp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(
+                            BorderStroke(2.dp, Color.LightGray),
+                            RoundedCornerShape(8.dp)
+                        )
+                )
+
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Button(
+                onClick = {
+                    if (firstName.isBlank() || lastName.isBlank() || email.isBlank()) {
+                        massage = "Registration unsuccessful. Please enter all data."
+                        Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
+                    } else {
+                        saveToSharePreferences(context, firstName, lastName, email)
+                        massage = "Registration successful!"
+                        Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
+                        navController.navigate(Home.route)
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(
+                        0xFFF4CE14
+                    )
+                ),
+                shape = RoundedCornerShape(25),
+                border = BorderStroke(2.dp, Color(0xFFdcae59))
+            ) {
+                Text(
+                    text = "Register",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp
+                )
+            }
         }
     }
 }
