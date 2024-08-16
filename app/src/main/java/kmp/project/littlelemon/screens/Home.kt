@@ -236,9 +236,9 @@ fun MenuItemCard(menuItem: MenuItem) {
     ) {
         Row(
             modifier = Modifier.padding(10.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Column {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = menuItem.title,
                     style = MaterialTheme.typography.titleMedium,
@@ -247,7 +247,7 @@ fun MenuItemCard(menuItem: MenuItem) {
                     fontSize = 20.sp
                 )
                 Spacer(modifier = Modifier.height(5.dp))
-                Box(modifier = Modifier.width(250.dp)) {
+                Box(modifier = Modifier.width(260.dp)) {
                     Text(
                         text = menuItem.description,
                         style = MaterialTheme.typography.bodyMedium,
@@ -262,7 +262,6 @@ fun MenuItemCard(menuItem: MenuItem) {
                     color = Color(0xFF546861)
                 )
             }
-            Spacer(modifier = Modifier.width(30.dp))
             Image(
                 painter = rememberAsyncImagePainter(menuItem.image),
                 contentDescription = menuItem.title,
