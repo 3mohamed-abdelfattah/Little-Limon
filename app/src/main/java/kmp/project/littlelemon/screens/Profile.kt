@@ -114,7 +114,7 @@ fun ProfileScreen(navController: NavController) {
                     modifier = Modifier
                         .size(150.dp)
                         .shadow(
-                            elevation = 10.dp,
+                            elevation = 15.dp,
                             shape = CircleShape,
                             clip = true
                         )
