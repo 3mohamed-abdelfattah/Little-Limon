@@ -36,6 +36,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -229,7 +230,8 @@ fun Onboarding(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp)
-                    .height(50.dp),
+                    .height(50.dp)
+                    .shadow(elevation = 10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(
                         0xFFF4CE14

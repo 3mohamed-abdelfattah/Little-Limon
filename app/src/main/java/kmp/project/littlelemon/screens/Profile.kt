@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -111,10 +112,15 @@ fun ProfileScreen(navController: NavController) {
                     contentDescription = "Profile",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .clip(CircleShape)
                         .size(150.dp)
+                        .shadow(
+                            elevation = 10.dp,
+                            shape = CircleShape,
+                            clip = true
+                        )
+                        .clip(CircleShape)
+                        .border(BorderStroke(2.dp, Color(0xFFEDEFEF)), CircleShape)
                         .align(Alignment.Center)
-                        .border(BorderStroke(2.dp, Color(0XFFEDEFEE)), CircleShape)
                 )
             }
 
@@ -243,7 +249,8 @@ fun ProfileScreen(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp)
-                    .height(50.dp),
+                    .height(50.dp)
+                    .shadow(elevation = 10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(
                         0xFFF4CE14
