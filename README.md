@@ -84,8 +84,8 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/9475c935-49c0-4ff5-b2bb-6e3a22d5f433" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/ffb8c907-54a6-4896-a849-00fd6ad47a30" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
-    <td><img src="https://github.com/user-attachments/assets/80bfa070-d049-433d-a1a0-27d86181c891" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/c38798bb-1056-4c5d-8461-fa69811b6dd9" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/9c50116f-9ee9-4b29-9919-39d265a6cdff" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
