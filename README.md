@@ -88,7 +88,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
     <td><img src="https://github.com/user-attachments/assets/9c50116f-9ee9-4b29-9919-39d265a6cdff" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr>
-    <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="https://github.com/user-attachments/assets/d1b29dde-7c5c-44e7-94cb-a4f16a65daa6" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
     <td><img src="" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
 </table>
