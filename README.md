@@ -17,7 +17,6 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Project Functionality](#project-functionality)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Contact](#contact)
 - [Additional Resources](#additional-resources)
 
 ## Features
@@ -94,12 +93,35 @@ Welcome to my first full professional project under Meta's supervision. This pro
 </table>
 
 ## Technologies Used
+
 - **Kotlin** - The programming language used for Android development.
 - **Jetpack Compose** - For building the UI.
-- **Room Database** - For data persistence.
-- **Retrofit** - For networking.
-- **Coroutines** - For handling asynchronous operations.
-- List any other libraries or tools used in your project.
+  - **androidx.compose.bom** - For managing versions of Compose libraries.
+  - **androidx.ui** - For core UI components.
+  - **androidx.ui.graphics** - For working with graphics and drawing.
+  - **androidx.ui.tooling.preview** - For previewing UI components during development.
+  - **androidx.material3** - For implementing Material Design 3 components.
+- **Room Database** - For data persistence and local database management.
+  - **androidx.room.runtime** - For runtime support of Room.
+  - **androidx.room.ktx** - For Kotlin extensions for Room.
+  - **room-compiler** - For annotation processing in Room.
+- **Ktor** - For networking and making HTTP requests.
+  - **Ktor Client Android** - For Android-specific client implementation.
+  - **Ktor Content Negotiation** - For handling content types in HTTP requests and responses.
+  - **Kotlinx Serialization** - For serializing and deserializing JSON data.
+- **Coil Compose** - For loading and displaying images in the UI.
+- **Navigation Component** - For managing navigation between composables.
+  - **androidx.navigation.compose** - For Compose-specific navigation components.
+- **LiveData** - For observing data in a lifecycle-aware manner.
+  - **androidx.runtime.livedata** - For integrating LiveData with Compose.
+- **Testing Libraries** - For unit and UI testing.
+  - **JUnit** - For unit testing.
+  - **Espresso** - For UI testing.
+  - **androidx.junit** - For Android-specific JUnit support.
+  - **androidx.ui.test.junit4** - For testing UI components in Compose.
+  - **androidx.ui.test.manifest** - For manifest testing support.
+  - **androidx.ui.tooling** - For UI tooling and debugging during development.
+- **Coroutines** - For handling asynchronous operations in Kotlin.
 
 ## Installation
 1. Clone this repository:
