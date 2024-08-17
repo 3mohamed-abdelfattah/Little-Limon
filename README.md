@@ -1,6 +1,3 @@
-
-![9233841_4120164](https://github.com/user-attachments/assets/397d69eb-f301-43a0-a757-6d35b243217f)
-
 # Android App Capstone Project
 
 ## Overview
@@ -20,8 +17,28 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Additional Resources](#additional-resources)
 
 ## Features
-- .
-- .
+
+- **Onboarding Screen**: When the app is opened for the first time, users are greeted with an onboarding screen prompting them to enter their personal details.
+
+- **Home Screen Layout**: The Home screen contains the following sections:
+  - **Hero Section**: Features a brief description of the Little Lemon restaurant and includes a search bar.
+  - **Menu Breakdown**:
+    - **Menu Sections Buttons**: Quick access to different sections of the menu.
+  - **Menu Items (Vertically Scrollable)**:
+    - **Name of Dish**: Displays the name of each dish.
+    - **Picture of Dish**: Visual representation of the dish.
+    - **Description**: Brief description of the dish.
+    - **Price**: Cost of the dish.
+
+- **Search Functionality**: The app supports searching for menu items using the search bar in the Home screen.
+
+- **Profile Screen**:
+  - **Populated with Onboarding Data**: The Profile screen is populated with the data entered during onboarding.
+  - **Persistent User Details**: User details in the Profile screen are retained even when the app is restarted.
+  - **Log Out Functionality**: Clicking the Log out button clears all data from the Profile screen.
+
+- **Navigation**:
+  - **Stack Navigation**: The app uses stack navigation, allowing users to access the previous screen using the back button.
 
 ## Planning the User Experience
 
