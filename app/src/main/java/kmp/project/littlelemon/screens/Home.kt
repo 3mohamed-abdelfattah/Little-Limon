@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -44,8 +45,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -81,6 +84,9 @@ val customTextTextStyle = TextStyle(
 
 @Composable
 fun HomeScreen(navController: NavController) {
+
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
 
         var searchPhrase by remember { mutableStateOf("") }
@@ -97,7 +103,13 @@ fun HomeScreen(navController: NavController) {
         }
 
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .pointerInput(Unit) {
+                    detectTapGestures(onTap = {
+                        keyboardController?.hide()
+                    })
+                }
         ) {
             Spacer(modifier = Modifier.height(30.dp))
             TopBar(navController)
