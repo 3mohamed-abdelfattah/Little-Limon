@@ -47,6 +47,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -59,6 +62,22 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import kmp.project.littlelemon.R
 import kmp.project.littlelemon.navigation.Profile
+
+val MerriWeather = FontFamily(Font(R.font.merriweather_bold))
+val Barlow = FontFamily(Font(R.font.barlow_regular))
+
+val customLogoTextStyle = TextStyle(
+    fontFamily = MerriWeather,
+    fontSize = 42.sp
+)
+val customTitleTextStyle = TextStyle(
+    fontFamily = Barlow,
+    fontSize = 32.sp
+)
+val customTextTextStyle = TextStyle(
+    fontFamily = Barlow,
+    fontSize = 20.sp
+)
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -147,17 +166,17 @@ fun RestaurantInfo(searchPhrase: String, onSearchPhraseChange: (String) -> Unit)
     ) {
         Text(
             text = "Little Lemon",
-            style = MaterialTheme.typography.headlineLarge,
+            style = customLogoTextStyle,
             fontWeight = FontWeight.SemiBold,
-            color = Color(0xFFF4CE14)
+            color = Color(0xFFF4CE14),
         )
-        Text(text = "Egypt", style = MaterialTheme.typography.headlineMedium, color = Color.White)
+        Text(text = "Egypt", style = customTitleTextStyle, color = Color.White)
         Spacer(modifier = Modifier.height(15.dp))
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Box(modifier = Modifier.weight(1f)) {
                 Text(
                     text = "We are a family owned Mediterranean restaurant,focused on traditional recipes served with a modern twist.",
-                    style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Normal,
+                    style = customTextTextStyle, fontWeight = FontWeight.Normal,
                     color = Color.White, textAlign = TextAlign.Left,
                 )
             }
@@ -339,14 +358,14 @@ val sampleMenuItems = listOf(
         title = "Lemon Desert",
         description = "Traditional homemade Italian Lemon Ricotta Cake.",
         price = "10",
-        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
+        image = "https://sugar-n-spicegals.com/wp-content/uploads/2017/01/IMG_2466.jpg",
         category = "desserts"
     ), MenuItem(
         id = 3,
         title = "Grilled Fish",
         description = "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
         price = "10",
-        image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/pasta.jpg?raw=true",
+        image = "https://www.licious.in/blog/wp-content/uploads/2020/12/Grilled-Fish.jpg",
         category = "mains"
     ), MenuItem(
         id = 4,
