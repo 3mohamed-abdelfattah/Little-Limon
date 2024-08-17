@@ -121,4 +121,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Creating a client application | Ktor](https://ktor.io/docs/getting-started-ktor-client.html)
 - [State and Jetpack Compose  |  Android Developers](https://developer.android.com/jetpack/compose/state)
 - [Collection operations overview | Kotlin Documentation (kotlinlang.org)](https://kotlinlang.org/docs/collection-operations.html)
-- []()
+- [Google Play Console | Publish and manage Android applications](https://console.cloud.google.com/)
+- [Google Developer |  The starting point for submitting an app](https://console.developers.google.com/)
+- [Google Play Store App Publish Guide | A guide on how to publish Android application to the Google Play Store](https://developer.android.com/studio/publish)
+- [Prepare App For Release | A guide describing tasks to prepare for app release](https://developer.android.com/studio/publish/preparing)
