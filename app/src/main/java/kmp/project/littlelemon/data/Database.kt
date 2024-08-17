@@ -1,4 +1,4 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.data
 
 import androidx.room.Dao
 import androidx.room.Database

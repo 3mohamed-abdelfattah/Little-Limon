@@ -1,4 +1,4 @@
-package kmp.project.littlelemon
+package kmp.project.littlelemon.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
