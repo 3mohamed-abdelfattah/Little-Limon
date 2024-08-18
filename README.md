@@ -13,7 +13,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Planning the User Interface](#planning-the-user-interface)
 - [Project Functionality](#project-functionality)
 - [Technologies Used](#technologies-used)
-- [Final APP]()
+- [Final APP](#final-app)
 - [Installation](#installation)
 - [Additional Resources](#additional-resources)
 
