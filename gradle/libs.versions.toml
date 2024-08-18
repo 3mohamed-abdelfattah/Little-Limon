@@ -1,7 +1,9 @@
 [versions]
+accompanistPlaceholderMaterial = "0.30.1"
 agp = "8.5.2"
 coilCompose = "2.1.0"
 compose = "1.0.0-beta01"
+composeShimmer = "1.0.3"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,6 +20,7 @@ roomRuntime = "2.6.1"
 runtimeLivedata = "1.6.8"
 
 [libraries]
+accompanist-placeholder-material = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanistPlaceholderMaterial" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
@@ -25,6 +28,7 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRunt
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 compose = { module = "com.github.bumptech.glide:compose", version.ref = "compose" }
+compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
