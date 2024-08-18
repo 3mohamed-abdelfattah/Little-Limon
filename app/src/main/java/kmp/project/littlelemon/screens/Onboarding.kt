@@ -29,7 +29,6 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -69,19 +68,6 @@ fun Onboarding(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var massage by remember { mutableStateOf("") }
     val context = LocalContext.current
-
-    LaunchedEffect(Unit) {
-        val sharedPreferences = context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
-        firstName = sharedPreferences.getString("firstName", "") ?: ""
-        lastName = sharedPreferences.getString("lastName", "") ?: ""
-        email = sharedPreferences.getString("email", "") ?: ""
-
-        if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty()) {
-            navController.navigate(Home.route) {
-                popUpTo(kmp.project.littlelemon.navigation.Onboarding.route) { inclusive = true }
-            }
-        }
-    }
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
 
