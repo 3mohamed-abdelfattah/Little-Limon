@@ -13,6 +13,7 @@ Welcome to my first full professional project under Meta's supervision. This pro
 - [Planning the User Interface](#planning-the-user-interface)
 - [Project Functionality](#project-functionality)
 - [Technologies Used](#technologies-used)
+- [Final APP](#final-app)
 - [Installation](#installation)
 - [Additional Resources](#additional-resources)
 
@@ -139,6 +140,24 @@ Welcome to my first full professional project under Meta's supervision. This pro
   - **androidx.ui.test.manifest** - For manifest testing support.
   - **androidx.ui.tooling** - For UI tooling and debugging during development.
 - **Coroutines** - For handling asynchronous operations in Kotlin.
+
+ 
+## Final APP
+
+ <table align="center">
+  <tr>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+  <tr>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img src="" alt="APP"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
+</table>
 
 ## Installation
 1. Clone this repository:
