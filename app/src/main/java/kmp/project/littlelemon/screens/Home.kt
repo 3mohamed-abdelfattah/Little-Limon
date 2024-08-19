@@ -127,7 +127,7 @@ fun HomeScreen(navController: NavController) {
                 thickness = 1.dp,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
-            MenuScreen(menuItems = filteredMenuItems)
+            MenuScreen(menuItems = filteredMenuItems, navController = navController)
         }
     }
 
@@ -271,14 +271,14 @@ fun CategoryTabs(selectedCategory: String?, onCategorySelected: (String?) -> Uni
 }
 
 @Composable
-fun MenuScreen(menuItems: List<MenuItem>) {
+fun MenuScreen(menuItems: List<MenuItem>, navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(5.dp)
     ) {
         items(menuItems) { menuItem ->
-            MenuItemCard(menuItem)
+            MenuItemCard(menuItem, navController)
             HorizontalDivider(
                 color = Color(0XFFE7E7E7),
                 thickness = 1.dp,
@@ -289,11 +289,14 @@ fun MenuScreen(menuItems: List<MenuItem>) {
 }
 
 @Composable
-fun MenuItemCard(menuItem: MenuItem) {
+fun MenuItemCard(menuItem: MenuItem, navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 5.dp),
+            .padding(vertical = 5.dp)
+            .clickable {
+                navController.navigate("menuItemDetail/${menuItem.id}")
+            },
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
@@ -371,12 +374,6 @@ fun MenuItemCard(menuItem: MenuItem) {
 fun HomeScreenPreview() {
     val navController = rememberNavController()
     HomeScreen(navController = navController)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MenuScreenPreview() {
-    MenuScreen(menuItems = sampleMenuItems)
 }
 
 data class MenuItem(
