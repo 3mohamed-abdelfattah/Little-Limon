@@ -66,6 +66,7 @@ fun Onboarding(navController: NavController) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
+    var number by remember { mutableStateOf("") }
     var massage by remember { mutableStateOf("") }
     val context = LocalContext.current
 
@@ -208,17 +209,47 @@ fun Onboarding(navController: NavController) {
                         )
                 )
 
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Text(text = "Phone Number", fontWeight = FontWeight.W500, fontSize = 16.sp)
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = number,
+                    onValueChange = { number = it },
+                    trailingIcon = {
+                        if (number.isNotEmpty()) {
+                            IconButton(onClick = { number = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = null)
+                            }
+                        }
+                    },
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        cursorColor = Color(0XFF495E57),
+                    ),
+                    textStyle = TextStyle(fontSize = 18.sp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(
+                            BorderStroke(2.dp, Color.LightGray),
+                            RoundedCornerShape(8.dp)
+                        )
+                )
             }
 
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
                 onClick = {
-                    if (firstName.isBlank() || lastName.isBlank() || email.isBlank()) {
+                    if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || number.isBlank()) {
                         massage = "Registration unsuccessful. Please enter all data."
                         Toast.makeText(context, massage, Toast.LENGTH_LONG).show()
                     } else {
-                        saveToSharePreferences(context, firstName, lastName, email)
+                        saveToSharePreferences(context, firstName, lastName, email, number)
                         massage = "Registration successful!"
                         Toast.makeText(context, massage, Toast.LENGTH_SHORT).show()
                         navController.navigate(Home.route)
@@ -252,7 +283,8 @@ fun saveToSharePreferences(
     context: Context,
     firstName: String,
     lastName: String,
-    email: String
+    email: String,
+    number: String
 ) {
     val sharePreferences: SharedPreferences =
         context.getSharedPreferences("Little Lemon", Context.MODE_PRIVATE)
@@ -260,6 +292,7 @@ fun saveToSharePreferences(
     editor.putString("firstName", firstName)
     editor.putString("lastName", lastName)
     editor.putString("email", email)
+    editor.putString("number", number)
     editor.apply()
 }
 

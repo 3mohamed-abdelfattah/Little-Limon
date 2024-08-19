@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,14 +19,19 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -69,6 +76,8 @@ fun ProfileScreen(navController: NavController) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
+    var number by remember { mutableStateOf("") }
+
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
@@ -76,11 +85,13 @@ fun ProfileScreen(navController: NavController) {
         firstName = sharedPreferences.getString("firstName", "") ?: ""
         lastName = sharedPreferences.getString("lastName", "") ?: ""
         email = sharedPreferences.getString("email", "") ?: ""
+        number = sharedPreferences.getString("number", "") ?: ""
     }
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Column(modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .pointerInput(Unit) {
                 detectTapGestures(onTap = {
                     keyboardController?.hide()
@@ -116,23 +127,42 @@ fun ProfileScreen(navController: NavController) {
 
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .align(Alignment.CenterHorizontally)
+                    .size(120.dp)
+                    .clip(CircleShape)
+                    .border(BorderStroke(2.dp, Color(0xFFEDEFEF)), CircleShape)
+                    .shadow(elevation = 15.dp, shape = CircleShape, clip = true)
             ) {
+                // Image
                 Image(
                     painter = painterResource(id = R.drawable.profile),
                     contentDescription = "Profile",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .size(150.dp)
-                        .shadow(
-                            elevation = 15.dp,
-                            shape = CircleShape,
-                            clip = true
-                        )
-                        .clip(CircleShape)
-                        .border(BorderStroke(2.dp, Color(0xFFEDEFEF)), CircleShape)
-                        .align(Alignment.Center)
+                        .fillMaxSize()
                 )
+                // Edit Icon
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(8.dp)
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .background(Color.White)
+                        .border(BorderStroke(1.dp, Color.Gray))
+                        .clickable {
+                            // Handle edit action here
+                        }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Edit Profile Picture",
+                        tint = Color.Gray,
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .size(24.dp)
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -245,8 +275,100 @@ fun ProfileScreen(navController: NavController) {
                         )
                 )
 
-            }
+                Spacer(modifier = Modifier.height(24.dp))
 
+                Text(text = "Phone Number", fontWeight = FontWeight.W500, fontSize = 16.sp)
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = number,
+                    onValueChange = { newValue ->
+                        number = newValue
+                        saveToSharePreferences(context, "number", newValue)
+                    },
+                    trailingIcon = {
+                        if (number.isNotEmpty()) {
+                            IconButton(onClick = { number = "" }) {
+                                Icon(Icons.Default.Clear, contentDescription = null)
+                            }
+                        }
+                    },
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        cursorColor = Color(0XFF495E57),
+                    ),
+                    textStyle = TextStyle(fontSize = 18.sp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(
+                            BorderStroke(2.dp, Color.LightGray),
+                            RoundedCornerShape(8.dp)
+                        )
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(text = "Email notification", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Checkbox(
+                        checked = true, // Replace with actual state
+                        onCheckedChange = { /* Handle change */ },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = Color(0xFF4B5E58),
+                            uncheckedColor = Color(0xFF4B5E58),
+                            checkmarkColor = Color.White
+                        )
+                    )
+                    Text(
+                        text = "Order statues",
+                        fontSize = 14.sp
+                    )
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Checkbox(
+                        checked = false, // Replace with actual state
+                        onCheckedChange = { /* Handle change */ },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = Color(0xFF4B5E58),
+                            uncheckedColor = Color(0xFF4B5E58),
+                            checkmarkColor = Color.White
+                        )
+                    )
+                    Text(
+                        text = "Password changes",
+                        fontSize = 14.sp
+                    )
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Checkbox(
+                        checked = true, // Replace with actual state
+                        onCheckedChange = { /* Handle change */ },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = Color(0xFF4B5E58),
+                            uncheckedColor = Color(0xFF4B5E58),
+                            checkmarkColor = Color.White
+                        )
+                    )
+                    Text(
+                        text = "Special offers",
+                        fontSize = 14.sp
+                    )
+                }
+            }
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
