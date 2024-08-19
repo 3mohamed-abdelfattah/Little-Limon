@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kmp.project.littlelemon.screens.HomeScreen
+import kmp.project.littlelemon.screens.MenuItemDetailScreen
 import kmp.project.littlelemon.screens.Onboarding
 import kmp.project.littlelemon.screens.ProfileScreen
 import kmp.project.littlelemon.screens.SplashScreen
@@ -19,8 +20,11 @@ fun MyNavigation() {
         composable(Onboarding.route) {
             Onboarding(navController = navController)
         }
-        composable(Home.route) {
-            HomeScreen(navController = navController)
+        composable("home") { HomeScreen(navController) }
+        composable("menuItemDetail/{menuItemId}") { backStackEntry ->
+            val menuItemId =
+                backStackEntry.arguments?.getString("menuItemId")?.toInt() ?: return@composable
+            MenuItemDetailScreen(navController, menuItemId)
         }
         composable(Profile.route) {
             ProfileScreen(navController = navController)
