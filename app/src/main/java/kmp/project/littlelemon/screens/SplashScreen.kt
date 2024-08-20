@@ -53,10 +53,10 @@ fun SplashScreen(navController: NavController) {
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.launcher_logo),
+            painter = painterResource(id = R.drawable.logo),
             contentDescription = null,
             modifier = Modifier
-                .size(150.dp)
+                .size(250.dp)
         )
 
     }
