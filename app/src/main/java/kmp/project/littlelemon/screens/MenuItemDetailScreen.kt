@@ -28,6 +28,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -95,12 +96,24 @@ fun MenuDetailScreen(menuItem: MenuItem) {
         currency = Currency.getInstance("USD")
     }
 
-    val options = listOf("Feta" to 1.00, "Parmesan" to 1.00, "Dressing" to 1.00)
+    val options = when (menuItem.category) {
+        "desserts" -> {
+            listOf("Extra Chocolate" to 3.00, "Fruits Slice" to 1.50, "Dressing" to 1.00)
+        }
+
+        "starters", "mains" -> {
+            listOf("Parmesan Cheese" to 3.00, "Green Sauce" to 1.00, "Ranch Sauce" to 1.00)
+        }
+
+        else -> {
+            listOf("Extra Size" to 1.50, "Stevia Sugar" to 0.50, "More Ice" to 0.00)
+        }
+    }
     val checkedStates = remember { mutableStateOf(options.map { false }) }
-    val extraCost = remember { mutableStateOf(0.0) }
+    val extraCost = remember { mutableDoubleStateOf(0.0) }
 
     fun updateExtraCost() {
-        extraCost.value = checkedStates.value
+        extraCost.doubleValue = checkedStates.value
             .mapIndexed { index, checked -> if (checked) options[index].second else 0.0 }
             .sum()
     }
@@ -275,7 +288,7 @@ fun MenuDetailScreen(menuItem: MenuItem) {
                     border = BorderStroke(1.dp, Color(0xFFdcae59))
                 ) {
                     val totalPrice =
-                        (menuItem.price.toDouble() + extraCost.value) * quantity.intValue
+                        (menuItem.price.toDouble() + extraCost.doubleValue) * quantity.intValue
                     Text(
                         text = "Add for ${numberFormat.format(totalPrice)}",
                         color = Color.Black,
