@@ -17,12 +17,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
@@ -43,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import kmp.project.littlelemon.R
+import kmp.project.littlelemon.navigation.Home
 import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
@@ -64,7 +68,20 @@ fun MenuItemDetailScreen(navController: NavController, menuItemId: Int) {
             }
     ) {
         Spacer(modifier = Modifier.height(30.dp))
-        TopBar(navController)
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            IconButton(
+                onClick = {
+                    navController.navigate(Home.route) {
+                        popUpTo("Home") { inclusive = true }
+                    }
+                },
+                modifier = Modifier.align(Alignment.CenterStart)
+            ) { Icon(Icons.AutoMirrored.Sharp.ArrowBack, contentDescription = "Back") }
+            TopBar(navController)
+        }
         MenuDetailScreen(menuItem = menuItem)
     }
 }
