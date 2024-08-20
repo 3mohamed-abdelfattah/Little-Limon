@@ -77,6 +77,9 @@ fun ProfileScreen(navController: NavController) {
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var number by remember { mutableStateOf("") }
+    val checkedStatesOne = remember { mutableStateOf(true) }
+    val checkedStatesTwo = remember { mutableStateOf(false) }
+    val checkedStatesThree = remember { mutableStateOf(true) }
 
     val context = LocalContext.current
 
@@ -317,8 +320,8 @@ fun ProfileScreen(navController: NavController) {
                         .fillMaxWidth()
                 ) {
                     Checkbox(
-                        checked = true, // Replace with actual state
-                        onCheckedChange = { /* Handle change */ },
+                        checked = checkedStatesOne.value,
+                        onCheckedChange = { checked -> checkedStatesOne.value = checked },
                         colors = CheckboxDefaults.colors(
                             checkedColor = Color(0xFF4B5E58),
                             uncheckedColor = Color(0xFF4B5E58),
@@ -336,8 +339,8 @@ fun ProfileScreen(navController: NavController) {
                         .fillMaxWidth()
                 ) {
                     Checkbox(
-                        checked = false, // Replace with actual state
-                        onCheckedChange = { /* Handle change */ },
+                        checked = checkedStatesTwo.value,
+                        onCheckedChange = { checked -> checkedStatesTwo.value = checked },
                         colors = CheckboxDefaults.colors(
                             checkedColor = Color(0xFF4B5E58),
                             uncheckedColor = Color(0xFF4B5E58),
@@ -355,8 +358,8 @@ fun ProfileScreen(navController: NavController) {
                         .fillMaxWidth()
                 ) {
                     Checkbox(
-                        checked = true, // Replace with actual state
-                        onCheckedChange = { /* Handle change */ },
+                        checked = checkedStatesThree.value,
+                        onCheckedChange = { checked -> checkedStatesThree.value = checked },
                         colors = CheckboxDefaults.colors(
                             checkedColor = Color(0xFF4B5E58),
                             uncheckedColor = Color(0xFF4B5E58),
