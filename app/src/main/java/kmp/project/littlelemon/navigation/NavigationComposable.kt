@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kmp.project.littlelemon.screens.CartScreen
 import kmp.project.littlelemon.screens.HomeScreen
 import kmp.project.littlelemon.screens.MenuItemDetailScreen
 import kmp.project.littlelemon.screens.Onboarding
@@ -28,6 +29,9 @@ fun MyNavigation() {
         }
         composable(Profile.route) {
             ProfileScreen(navController = navController)
+        }
+        composable(Cart.route) {
+            CartScreen(navController = navController)
         }
     }
 }

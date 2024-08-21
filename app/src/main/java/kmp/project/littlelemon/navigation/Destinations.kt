@@ -19,3 +19,7 @@ object Home : Destinations {
 object Profile : Destinations {
     override val route = "profile"
 }
+
+object Cart : Destinations {
+    override val route = "cart"
+}
