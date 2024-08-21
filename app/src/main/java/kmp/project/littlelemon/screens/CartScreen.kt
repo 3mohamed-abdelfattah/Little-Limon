@@ -18,22 +18,23 @@ import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import coil.compose.SubcomposeAsyncImage
 import kmp.project.littlelemon.R
 import kmp.project.littlelemon.navigation.Home
 import java.text.NumberFormat
@@ -50,14 +51,13 @@ fun CartScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(15.dp)
     ) {
 
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 15.dp),
+                .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
@@ -104,14 +104,22 @@ fun CartScreen(navController: NavHostController) {
             }
             Text(
                 text = "Change",
+                color = Color(0xFF78817d),
+                fontWeight = FontWeight.W900,
                 fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
-                    .background(Color.LightGray, RoundedCornerShape(10.dp))
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
+                    .background(Color(0XFFe5eae8), RoundedCornerShape(25.dp))
+                    .padding(10.dp)
             )
         }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        HorizontalDivider(
+            color = Color(0XFFE7E7E7),
+            thickness = 1.dp,
+            modifier = Modifier.padding(horizontal = 16.dp)
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -122,36 +130,103 @@ fun CartScreen(navController: NavHostController) {
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
-        Text(
-            text = "Help reduce plastic waste. Only ask for cutlery if you need it",
-            fontSize = 14.sp,
-            color = Color.Gray
-        )
-        Checkbox(checked = false, onCheckedChange = {})
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Text(
+                text = "Help reduce plastic waste.\nOnly ask for cutlery if you need it",
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+            Checkbox(
+                checked = true, onCheckedChange = {}, colors = CheckboxDefaults.colors(
+                    checkedColor = Color(0xFF4B5E58),
+                    uncheckedColor = Color(0xFF4B5E58),
+                    checkmarkColor = Color.White
+                )
+            )
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
         // Order Summary
         Text(
             text = "Order Summary",
-            fontSize = 16.sp,
+            fontSize = 21.sp,
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .background(Color(0XFFEAEAEA))
+                .padding(6.dp)
+        ) {
+            Text(text = "items", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "1 x Bruschetta",
+                text = "   1 x Bruschetta",
                 fontSize = 16.sp,
-                color = Color.Black
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = numberFormat.format(5.99),
+                fontSize = 16.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "   2 x Espresso",
+                fontSize = 16.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = numberFormat.format(11.99),
+                fontSize = 16.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "   1 x Lemon Desert",
+                fontSize = 16.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
             )
             Text(
                 text = numberFormat.format(7.99),
                 fontSize = 16.sp,
-                color = Color.Black
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
             )
         }
 
@@ -160,8 +235,8 @@ fun CartScreen(navController: NavHostController) {
         // Add More To Your Order
         Text(
             text = "Add More To Your Order!",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.ExtraBold,
             color = Color.Black
         )
 
@@ -173,16 +248,40 @@ fun CartScreen(navController: NavHostController) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "Greek Salad",
-                fontSize = 16.sp,
-                color = Color.Black
+            Column {
+                Text(
+                    text = "Greek Salad",
+                    fontSize = 16.sp,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold
+
+                )
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Text(
+                    text = "The famous greek salad of crispy lettuce,\npeppers, olives, our Chicago.",
+                    fontSize = 14.sp,
+                    color = Color.Gray,
+                    fontWeight = FontWeight.Normal
+                )
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Text(
+                    text = numberFormat.format(12.99),
+                    fontSize = 16.sp,
+                    color = Color(0XFF4B5E58),
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            SubcomposeAsyncImage(
+                model = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/greekSalad.jpg?raw=true",
+                contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(90.dp)
+                    .clip(RoundedCornerShape(8.dp))
             )
-            Text(
-                text = numberFormat.format(12.99),
-                fontSize = 16.sp,
-                color = Color.Black
-            )
+
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -193,8 +292,10 @@ fun CartScreen(navController: NavHostController) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(text = "Subtotal", fontSize = 16.sp, color = Color.Gray)
-            Text(text = numberFormat.format(7.99), fontSize = 16.sp, color = Color.Black)
+            Text(text = numberFormat.format(25.99), fontSize = 16.sp, color = Color.Black)
         }
+        Spacer(modifier = Modifier.height(5.dp))
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -202,16 +303,35 @@ fun CartScreen(navController: NavHostController) {
             Text(text = "Delivery", fontSize = 16.sp, color = Color.Gray)
             Text(text = numberFormat.format(2.00), fontSize = 16.sp, color = Color.Black)
         }
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        // Subtotal, Delivery, and Total
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = "Total", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+            Text(text = "Service", fontSize = 16.sp, color = Color.Gray)
+            Text(text = numberFormat.format(1.00), fontSize = 16.sp, color = Color.Black)
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
             Text(
-                text = numberFormat.format(10.99),
+                text = "Total",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
+            )
+            Text(
+                text = numberFormat.format(28.99),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color(0XFF4B5E58)
             )
         }
 
@@ -224,16 +344,17 @@ fun CartScreen(navController: NavHostController) {
                 .fillMaxWidth()
                 .height(50.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary
+                containerColor = Color(0xFFF4CE14)
             ),
             shape = RoundedCornerShape(25)
         ) {
             Text(
                 text = "Checkout",
-                color = Color.White,
+                color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp
             )
         }
+
     }
 }
