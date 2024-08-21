@@ -25,12 +25,14 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -67,6 +69,7 @@ import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
 import com.valentinilk.shimmer.shimmer
 import kmp.project.littlelemon.R
+import kmp.project.littlelemon.navigation.Cart
 import kmp.project.littlelemon.navigation.Profile
 
 val MerriWeather = FontFamily(Font(R.font.merriweather_bold))
@@ -142,6 +145,22 @@ fun TopBar(navController: NavController) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
+
+            IconButton(
+                onClick = {
+                    navController.navigate(Cart.route) {
+                        popUpTo("Home") { inclusive = true }
+                    }
+                },
+                modifier = Modifier.align(Alignment.CenterStart)
+            ) {
+                Icon(
+                    Icons.Outlined.ShoppingCart,
+                    contentDescription = "Cart",
+                    tint = Color(0XFF4B5E58)
+                )
+            }
+
             Image(
                 painter = (painterResource(id = R.drawable.logo)),
                 contentDescription = "App Logo",
@@ -339,30 +358,36 @@ fun MenuItemCard(menuItem: MenuItem, navController: NavController) {
                     .clip(RoundedCornerShape(8.dp))
             ) {
                 val state = painter.state
-                if (state is AsyncImagePainter.State.Loading) {
-                    Box(
-                        modifier = Modifier
-                            .size(90.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(Color.LightGray)
-                            .shimmer()
-                    )
-                } else if (state is AsyncImagePainter.State.Error) {
-                    Box(
-                        modifier = Modifier
-                            .size(90.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(Color(0XFF495E57)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(text = "Error", color = Color.White)
+                when (state) {
+                    is AsyncImagePainter.State.Loading -> {
+                        Box(
+                            modifier = Modifier
+                                .size(90.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(Color.LightGray)
+                                .shimmer()
+                        )
                     }
-                } else {
-                    SubcomposeAsyncImageContent(
-                        modifier = Modifier
-                            .size(90.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                    )
+
+                    is AsyncImagePainter.State.Error -> {
+                        Box(
+                            modifier = Modifier
+                                .size(90.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(Color(0XFF495E57)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(text = "Error", color = Color.White)
+                        }
+                    }
+
+                    else -> {
+                        SubcomposeAsyncImageContent(
+                            modifier = Modifier
+                                .size(90.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                        )
+                    }
                 }
             }
         }
